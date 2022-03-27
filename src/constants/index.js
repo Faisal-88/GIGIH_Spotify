@@ -1,4 +1,5 @@
-export const SPOTIFY_PLAYLIST_MOCK_DATA = [  
+//data
+export const SPOTIFY_PLAYLIST_DATA = [  
   {
     album: {
       album_type: 'album',

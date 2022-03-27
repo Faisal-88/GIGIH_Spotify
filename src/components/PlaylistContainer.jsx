@@ -1,9 +1,9 @@
 import PlaylistItem from './PlaylistItem';
-import { SPOTIFY_PLAYLIST_MOCK_DATA } from '../constants';
+import { SPOTIFY_PLAYLIST_DATA } from '../constants';
 function PlaylistContainer() {
   
   function renderPlaylistItems() {
-    return SPOTIFY_PLAYLIST_MOCK_DATA.map((item) => {
+    return SPOTIFY_PLAYLIST_DATA.map((item) => {
       const { id, album, name: songName, artists } = item;
       return (
         <PlaylistItem

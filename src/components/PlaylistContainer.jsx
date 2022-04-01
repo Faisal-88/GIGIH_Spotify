@@ -1,18 +1,34 @@
+import {useEffect,useState} from 'react';
 import PlaylistItem from './PlaylistItem';
-import { SPOTIFY_PLAYLIST_DATA } from '../constants';
-function PlaylistContainer() {
-  
-  function renderPlaylistItems() {
-    return SPOTIFY_PLAYLIST_DATA.map((item) => {
-      const { id, album, name: songName, artists } = item;
+
+function PlaylistContainer({tracks}) {
+    const [selectedTracks, setSelectedTracks] = useState([]);
+    const [combinedTracks,setCombinedTracks] = useState([]);
+
+    // Pilih trek, jika sudah dipilih, hapus dari daftar trek yang dipilih. 
+    //  Jika tidak, tambahkan ke daftar trek yang dipilih.
+    const handleSelectTrack = (track) => {
+      const alreadySelected = selectedTracks.find((t) => t.id === track.id);
+      if (alreadySelected) {
+        setSelectedTracks(selectedTracks.filter((t) => t.id !== track.id));
+      } else {
+        setSelectedTracks([...selectedTracks, track]);
+      }
+    };
+
+    useEffect(() => {
+      const combinedTracksWithSelectedTrack = tracks.map((track) => ({
+        ...track,
+        isSelected: setSelectedTracks.find((t) => t.id === track.id ),
+      }));
+      setCombinedTracks(combinedTracksWithSelectedTrack);
+    }, [selectedTracks,tracks]);
+
+    function renderPlaylistItems() {
+    return combinedTracks.map((item) =>{
+      const {id} = item;
       return (
-        <PlaylistItem
-          key={id}
-          image={album.images[0]?.url}
-          songName={songName}
-          albumName={album.name}
-          artists={artists}
-        />
+        <PlaylistItem key={id} track ={item} onSelectTrack={handleSelectTrack} />
       );
     });
   }

@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import './style.css';
-import PropTypes from 'prop-types';
-import Button from '../Button';
+import React, { useState } from 'react'
+import './style.css'
+import PropTypes from 'prop-types'
+import Button from '../Button'
 
-export default function Track({ imageUrl, title, artist, select, toggleSelect }) {
-  const [isSelected, setIsSelected] = useState(select);
+export default function Track ({ imageUrl, title, artist, select, toggleSelect }) {
+  const [isSelected, setIsSelected] = useState(select)
 
   const handleToggleSelect = () => {
-    setIsSelected(!isSelected);
-    toggleSelect();
+    setIsSelected(!isSelected)
+    toggleSelect()
   }
 
   return (
-    <div className="card">
-      <div className="card__image">
+    <div className='card'>
+      <div className='card__image'>
         <img src={imageUrl} alt={title} />
       </div>
 
-      <div className="card__data">
-        <div className="card__content">
-          <h3 className="card__title">{title}</h3>
-          <p className="card__artist">{artist}</p>
+      <div className='card__data'>
+        <div className='card__content'>
+          <h3 className='card__title'>{title}</h3>
+          <p className='card__artist'>{artist}</p>
         </div>
-        
-        <div className="card__action">
+
+        <div className='card__action'>
           <Button variant={isSelected ? 'primary' : 'secondary'} onClick={handleToggleSelect}>{isSelected ? 'Deselect' : 'Select'}</Button>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 Track.propTypes = {
@@ -36,5 +36,5 @@ Track.propTypes = {
   title: PropTypes.string.isRequired,
   artist: PropTypes.string.isRequired,
   toggleSelect: PropTypes.func.isRequired,
-  select: PropTypes.bool.isRequired,
+  select: PropTypes.bool.isRequired
 }

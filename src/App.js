@@ -1,17 +1,21 @@
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
-import Home from "./Pages/Home";
+import { BrowserRouter, Switch } from 'react-router-dom'
+import Auth from './Pages/Auth'
+import AuthRoute from './authRoute.js'
+import Home from './Pages/Home'
 
-function App() {
+function App () {
   return (
-    <>
-      <div className="App">
-        <Navbar />
-        <Home />
-        <Footer />
-      </div>
-    </>
-  );
+    <BrowserRouter>
+      <Switch>
+        <AuthRoute path='/create-playlists' type='private' exact>
+          <Home />
+        </AuthRoute>
+        <AuthRoute path='/' type='guest' exact>
+          <Auth />
+        </AuthRoute>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App

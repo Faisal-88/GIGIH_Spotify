@@ -1,7 +1,7 @@
 
-function InputGroup({ children }) {
+function InputGroup ({ children }) {
   return (
-    <div className="input-group">
+    <div className='input-group'>
       {children}
     </div>
   )

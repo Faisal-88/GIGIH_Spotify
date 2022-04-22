@@ -19,6 +19,7 @@ function Track({
   const dispatch = useDispatch();
   const [isHighlight, setIsHighlight] = useState(highlightTracks.some((item) => item === data.uri));
 
+  
   useEffect(() => {
     setIsHighlight(highlightTracks.some((item) => item === data.uri));
   }, [highlightTracks]);

@@ -4,7 +4,6 @@ export function getDuration(duration) {
   if (seconds < 10) seconds = `0${seconds}`;
   return `${minutes}:${seconds}`;
 }
-
 export function getHashParams() {
   const hashParams = {};
   const r = /([^&;=]+)=?([^&;]*)/g;

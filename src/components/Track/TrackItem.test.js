@@ -14,6 +14,7 @@ const selectMode = 'test';
 const highlightTracks = [''];
 const setHighlightTracks = 'test';
 
+
 beforeEach(() => {
     render (
         <Provider store={store}>

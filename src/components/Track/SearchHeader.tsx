@@ -106,4 +106,5 @@ function SearchHeader({ tracks, setView }: trackListType) {
   );
 }
 
+
 export default SearchHeader;
